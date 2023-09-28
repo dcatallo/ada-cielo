@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project.
+This is a [Next.js](https://nextjs.org/) project. 
 
 # Getting Started
 
@@ -7,6 +7,10 @@ This is a [Next.js](https://nextjs.org/) project.
 ### Frameworks
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
+
+### Runtime environment
+
+- [Node.js](https://nodejs.org/es) - Node.js is a runtime environment for JavaScript built with V8, Chrome's JavaScript engine.
 
 ### UI
 
@@ -23,7 +27,9 @@ This is a [Next.js](https://nextjs.org/) project.
 
 ## How To Run
 
-First, run the development server:
+In this project we have two folder, one is for run the backend server and the another one is for run the front end server
+
+So, for run the front-end development server, open the folder cielo-front-end and execute the next command:
 
 ```bash
 npm run dev
@@ -37,25 +43,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Code Style Conventions and Best Practices
+Now, for run the back-end, open the folder cielo-back-end and execute the next command:
 
-### Best Practices
-
-#### Container and Presentational Components
-
-To follow the separation of concerns principle by differentiating between container components (handling logic and data) and presentational components (handling UI) we have the structure below:
-
-
-
-### Files and Components Naming Convention
-
-Files should be named using kebab-case and components should use PascalCase;
-
-### Utility Files
-
-Utility files or helper functions should be placed inside lib folder in the project root.
-
-
+```bash
+node cielo-server.js
+```
 
 ### Testing
 
