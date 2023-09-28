@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 // Define a sample API route
-app.get('/api/data', (req, res) => {
+app.get('/api/transactions/all', (req, res) => {
   const data = salesData;
   res.json(data);
 });
