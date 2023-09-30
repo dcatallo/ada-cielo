@@ -32,6 +32,15 @@ In this project we have two folder, one is for run the backend server and the an
 So, for run the front-end development server, open the folder cielo-front-end and execute the next command:
 
 ```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+```
+and
+
+```bash
 npm run dev
 # or
 yarn dev
