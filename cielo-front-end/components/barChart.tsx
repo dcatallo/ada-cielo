@@ -1,19 +1,21 @@
 'use client'
 
-import getAllTransactions from '@/api/getAllTransactions';
-import React from 'react'
+import { DataContext } from '@/context/data-context';
+import React, { useContext } from 'react'
 import { Chart } from "react-google-charts";
 
-export default async function BarChart() {
-    const trnData: Promise<TransactionResult> = getAllTransactions()
-
-    const trns = await trnData
+export default function BarChart() {
+    const  { trns } = useContext(DataContext)
+    
+    if (!trns[0]) {
+        return <div>Loading...</div>
+    }
 
     const dataBase = {
         title: ["Qty total", "Mont total", "Vl total", "Vm total"],
-        values: [1546, 313388.00, 301847.02, 202.71]
+        values: [trns[0].summary.totalQuantity, trns[0].summary.totalAmount, trns[0].summary.totalNetAmount, trns[0].summary.totalAverageAmount]
     };
-    
+
     let arrayIndex = Object.keys(dataBase)
     let arrayValues = Object.values(dataBase)
     

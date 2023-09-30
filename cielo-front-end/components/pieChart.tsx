@@ -1,7 +1,7 @@
 'use client'
 
-import getAllTransactions from "@/api/getAllTransactions";
-import React, { useContext } from "react";
+import { DataContext } from "@/context/data-context";
+import { useContext } from "react";
 import { Chart } from "react-google-charts";
 
 
@@ -10,20 +10,20 @@ export const options = {
     colors: ["violet", "blue", "green", "orange"]
 };
 
-export async function PieChart() {
-    const trnData: Promise<TransactionResult> = getAllTransactions()
-
-    const trns = await trnData
+export function PieChart() {
+    const  { trns } = useContext(DataContext)
+    
+    if (!trns[0]) {
+        return <div>Loading...</div>
+    }
 
     const data = [
         ["Task", "valores totais"],
-        ["Qty total", `${trns[0].summary.totalQuantity}`],
-        ["Mont total", `${trns[0].summary.totalAmount}`],
-        ["Vl total", `${trns[0].summary.totalNetAmount}`],
-        ["Vm total", `${trns[0].summary.totalAverageAmount}`],
+        ["QT", trns[0].summary.totalQuantity],
+        ["MT", trns[0].summary.totalAmount],
+        ["VLT", trns[0].summary.totalNetAmount],
+        ["VMT", trns[0].summary.totalAverageAmount],
     ];
-
-    console.log("DCATALLO " + JSON.stringify(data, null, 0))
     
     if (!data) {
         return <div>Loading...</div>;
