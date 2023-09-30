@@ -6,10 +6,17 @@ const app = express();
 // Enable CORS for all routes
 app.use(cors());
 
+const fs = require('fs')
+let jsonData = {}
+fs.readFile('./data/salesData.json', 'utf-8', (err, data) => {
+  if (err) throw err
+
+  jsonData = JSON.parse(data)
+})
+
 // Define a sample API route
 app.get('/api/transactions/all', (req, res) => {
-  const data = salesData;
-  res.json(data);
+  res.json(jsonData);
 });
 
 const port = 3001; // You can choose any available port

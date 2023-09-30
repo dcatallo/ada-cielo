@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between mt-10">
       <Transactions />
-      <div className="flex flex-grow space-x-60 w-full justify-center">
+      <div className="flex flex-grow w-full justify-center">
         <BarChart />
         <PieChart />
       </div>
